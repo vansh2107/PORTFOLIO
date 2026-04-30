@@ -595,10 +595,55 @@ h2.word-reveal.visible .word { opacity:1; transform:translateY(0); }
 }
 .project-card.jarvis {
   background:#0d0d14;
-  border-left:3px solid var(--gold);
-  border-top:1px solid var(--glass-border);
+  border-top:3px solid transparent;
+  border-image:linear-gradient(90deg,#c2a878,#fbbf24,#c2a878) 1;
+  border-image-slice:1;
   border-right:1px solid var(--glass-border);
   border-bottom:1px solid var(--glass-border);
+  border-left:1px solid var(--glass-border);
+}
+.jarvis-open-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  font-family:var(--font-mono);
+  font-size:0.68rem;
+  color:#fbbf24;
+  background:rgba(251,191,36,0.08);
+  border:1px solid rgba(251,191,36,0.3);
+  padding:0.25rem 0.75rem;
+  border-radius:50px;
+  margin-bottom:1.25rem;
+}
+.jarvis-terminal {
+  background:#080810;
+  border:1px solid rgba(194,168,120,0.15);
+  border-radius:10px;
+  padding:1rem 1.25rem;
+  margin:1.25rem 0;
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  line-height:1.9;
+}
+.jarvis-terminal .t-prompt { color:#4ade80; }
+.jarvis-terminal .t-cmd    { color:#e8e8e8; }
+.jarvis-terminal .t-arrow  { color:var(--gold); margin:0 0.3em; }
+.jarvis-terminal .t-result { color:#888; }
+.jarvis-btns {
+  display:flex;
+  gap:0.75rem;
+  flex-wrap:wrap;
+  margin-top:1.25rem;
+}
+.jarvis-h3-sub {
+  font-family:var(--font-mono);
+  font-size:0.72rem;
+  color:#fbbf24;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin-top:-0.5rem;
+  margin-bottom:1rem;
+  opacity:0.8;
 }
 .project-num {
   font-family:var(--font-mono);
@@ -649,17 +694,6 @@ h2.word-reveal.visible .word { opacity:1; transform:translateY(0); }
   min-width:100px;
   color:var(--gold);
   opacity:0.7;
-}
-.coming-soon-badge {
-  position:absolute;
-  top:1.25rem; right:1.25rem;
-  font-family:var(--font-mono);
-  font-size:0.68rem;
-  color:#fbbf24;
-  background:rgba(251,191,36,0.1);
-  border:1px solid rgba(251,191,36,0.3);
-  padding:0.25rem 0.7rem;
-  border-radius:50px;
 }
 .pull-quote {
   font-family:var(--font-body);
@@ -1027,62 +1061,83 @@ footer {
 
     <!-- Project 04 - JARVIS Full Width -->
     <div class="project-card jarvis full reveal" style="transition-delay:0.2s">
-      <span class="coming-soon-badge">Coming Soon</span>
-      <div class="project-inner">
+      <div class="project-inner" style="align-items:flex-start;">
         <div class="project-content">
+          <span class="jarvis-open-badge">🔒 Open Source · Python</span>
           <div class="project-num">04</div>
-          <h3>J.A.R.V.I.S. Smart Assistant</h3>
-          <p class="project-desc">A hybrid AI command system combining instant local execution with cloud intelligence (Groq/Grok LLM). Features dual-brain architecture — local fallback via Ollama TinyLlama, voice input, media control, smart tab management, memory persistence, and rate-limit-safe switching. Zero downtime, zero latency for commands.</p>
+          <h3>J.A.R.V.I.S.</h3>
+          <p class="jarvis-h3-sub">Hybrid AI Engine</p>
+          <p class="project-desc">A high-performance hybrid AI assistant for Windows. Combines instant local command execution with cloud intelligence (Grok / Groq Llama-3.3-70B) and a local fallback via Ollama TinyLlama — ensuring zero downtime under rate limits or offline conditions. Features voice input, smart tab management, memory persistence, rate-limit-safe switching, and a live terminal UI with syntax highlighting.</p>
           <div class="project-tags">
             <span class="project-tag">Python</span>
-            <span class="project-tag">AI</span>
-            <span class="project-tag">Hybrid Architecture</span>
-            <span class="project-tag">Voice</span>
             <span class="project-tag">Groq</span>
             <span class="project-tag">Ollama</span>
+            <span class="project-tag">Voice Input</span>
+            <span class="project-tag">Windows</span>
+            <span class="project-tag">CLI</span>
+            <span class="project-tag">AI</span>
+          </div>
+          <!-- Terminal demo snippet -->
+          <div class="jarvis-terminal">
+            <div><span class="t-prompt">$</span> <span class="t-cmd">play faded on brave</span><span class="t-arrow">→</span><span class="t-result">Plays instantly</span></div>
+            <div><span class="t-prompt">$</span> <span class="t-cmd">go to vscode</span><span class="t-arrow">→</span><span class="t-result">Switches window</span></div>
+            <div><span class="t-prompt">$</span> <span class="t-cmd">pause</span><span class="t-arrow">→</span><span class="t-result">Pauses playback</span></div>
+            <div><span class="t-prompt">$</span> <span class="t-cmd">weather in Ahmedabad</span><span class="t-arrow">→</span><span class="t-result">Returns live data</span></div>
           </div>
           <blockquote class="pull-quote">"Not just a chatbot. A hybrid command + AI execution system."</blockquote>
-          <p class="status-text">⚙ Deployment in progress — publishing soon</p>
+          <div class="jarvis-btns">
+            <a href="https://github.com/vansh2107/J.A.R.V.I.S" target="_blank" rel="noopener" class="btn btn-ghost" style="padding:0.6rem 1.4rem;font-size:0.82rem;">View on GitHub →</a>
+            <a href="https://github.com/vansh2107/J.A.R.V.I.S/blob/main/jarvis.py" target="_blank" rel="noopener" class="btn-link" style="opacity:0.65;">Source Code</a>
+          </div>
         </div>
-        <div class="project-visual" style="min-width:220px;">
-          <svg width="220" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Architecture SVG -->
+        <div class="project-visual" style="min-width:240px;align-self:center;">
+          <svg width="240" height="310" viewBox="0 0 240 310" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- User Input -->
-            <rect x="60" y="10" width="100" height="32" rx="6" fill="rgba(194,168,120,0.12)" stroke="#c2a878" stroke-width="1.2"/>
-            <text x="110" y="31" text-anchor="middle" fill="#c2a878" font-size="10" font-family="monospace">User Input</text>
+            <rect x="65" y="8" width="110" height="30" rx="6" fill="rgba(194,168,120,0.12)" stroke="#c2a878" stroke-width="1.2"/>
+            <text x="120" y="28" text-anchor="middle" fill="#c2a878" font-size="10" font-family="monospace">User Input</text>
             <!-- Arrow down -->
-            <line x1="110" y1="42" x2="110" y2="62" stroke="#c2a878" stroke-width="1.2"/>
-            <polygon points="105,60 115,60 110,68" fill="#c2a878"/>
-            <!-- Command Router -->
-            <rect x="45" y="68" width="130" height="32" rx="6" fill="rgba(194,168,120,0.08)" stroke="#c2a878" stroke-width="1.2"/>
-            <text x="110" y="89" text-anchor="middle" fill="#e8e8e8" font-size="10" font-family="monospace">Command Router</text>
-            <!-- Two arrows -->
-            <line x1="80" y1="100" x2="50" y2="120" stroke="#c2a878" stroke-width="1"/>
-            <polygon points="44,117 54,117 49,125" fill="#c2a878"/>
-            <line x1="140" y1="100" x2="170" y2="120" stroke="#c2a878" stroke-width="1"/>
-            <polygon points="164,117 174,117 169,125" fill="#c2a878"/>
-            <!-- Instant Exec -->
-            <rect x="5" y="125" width="90" height="30" rx="5" fill="rgba(99,102,241,0.15)" stroke="#6366f1" stroke-width="1"/>
-            <text x="50" y="145" text-anchor="middle" fill="#a5b4fc" font-size="9" font-family="monospace">Instant Exec</text>
-            <!-- AI Router -->
-            <rect x="125" y="125" width="90" height="30" rx="5" fill="rgba(139,92,246,0.15)" stroke="#8b5cf6" stroke-width="1"/>
-            <text x="170" y="145" text-anchor="middle" fill="#c4b5fd" font-size="9" font-family="monospace">AI Router</text>
-            <!-- Arrows from AI Router -->
-            <line x1="155" y1="155" x2="130" y2="175" stroke="#8b5cf6" stroke-width="1"/>
-            <polygon points="124,172 134,172 129,180" fill="#8b5cf6"/>
-            <line x1="185" y1="155" x2="195" y2="175" stroke="#8b5cf6" stroke-width="1"/>
-            <polygon points="189,173 199,173 194,181" fill="#8b5cf6"/>
-            <!-- Cloud AI -->
-            <rect x="100" y="180" width="80" height="28" rx="5" fill="rgba(194,168,120,0.1)" stroke="#c2a878" stroke-width="1"/>
-            <text x="140" y="199" text-anchor="middle" fill="#c2a878" font-size="8.5" font-family="monospace">Cloud AI (Groq)</text>
-            <!-- Local AI -->
-            <rect x="155" y="180" width="60" height="28" rx="5" fill="rgba(255,255,255,0.04)" stroke="#888" stroke-width="1"/>
-            <text x="185" y="199" text-anchor="middle" fill="#888" font-size="8" font-family="monospace">Local (Ollama)</text>
-            <!-- Arrow to System Actions -->
-            <line x1="110" y1="208" x2="110" y2="228" stroke="#c2a878" stroke-width="1.2"/>
-            <polygon points="105,226 115,226 110,234" fill="#c2a878"/>
-            <!-- System Actions -->
-            <rect x="45" y="234" width="130" height="28" rx="6" fill="rgba(194,168,120,0.12)" stroke="#c2a878" stroke-width="1.2"/>
-            <text x="110" y="253" text-anchor="middle" fill="#c2a878" font-size="10" font-family="monospace">System Actions</text>
+            <line x1="120" y1="38" x2="120" y2="56" stroke="#c2a878" stroke-width="1.2"/>
+            <polygon points="115,54 125,54 120,62" fill="#c2a878"/>
+            <!-- Command? diamond -->
+            <polygon points="120,62 155,80 120,98 85,80" fill="rgba(194,168,120,0.07)" stroke="#c2a878" stroke-width="1.2"/>
+            <text x="120" y="84" text-anchor="middle" fill="#e8e8e8" font-size="9" font-family="monospace">Command?</text>
+            <!-- YES branch left -->
+            <line x1="85" y1="80" x2="42" y2="80" stroke="#4ade80" stroke-width="1"/>
+            <polygon points="40,75 40,85 34,80" fill="#4ade80"/>
+            <text x="63" y="75" text-anchor="middle" fill="#4ade80" font-size="8" font-family="monospace">YES</text>
+            <!-- Instant Execution box -->
+            <rect x="2" y="94" width="96" height="28" rx="5" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="1"/>
+            <text x="50" y="113" text-anchor="middle" fill="#4ade80" font-size="9" font-family="monospace">Instant Execution</text>
+            <!-- Arrow from Instant Exec down to System Actions left -->
+            <line x1="50" y1="122" x2="50" y2="270" stroke="#4ade80" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="50" y1="270" x2="88" y2="270" stroke="#4ade80" stroke-width="1"/>
+            <!-- NO branch right -->
+            <line x1="155" y1="80" x2="198" y2="80" stroke="#f87171" stroke-width="1"/>
+            <polygon points="196,75 196,85 202,80" fill="#f87171"/>
+            <text x="177" y="75" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">NO</text>
+            <!-- AI Router box -->
+            <rect x="142" y="94" width="96" height="28" rx="5" fill="rgba(139,92,246,0.12)" stroke="#8b5cf6" stroke-width="1"/>
+            <text x="190" y="113" text-anchor="middle" fill="#c4b5fd" font-size="9" font-family="monospace">AI Router</text>
+            <!-- Arrow down from AI Router -->
+            <line x1="190" y1="122" x2="190" y2="140" stroke="#8b5cf6" stroke-width="1.2"/>
+            <polygon points="185,138 195,138 190,146" fill="#8b5cf6"/>
+            <!-- Cloud AI box -->
+            <rect x="142" y="146" width="96" height="28" rx="5" fill="rgba(194,168,120,0.1)" stroke="#c2a878" stroke-width="1"/>
+            <text x="190" y="165" text-anchor="middle" fill="#c2a878" font-size="9" font-family="monospace">Cloud AI (Groq)</text>
+            <!-- Fail label + arrow to Local AI -->
+            <line x1="190" y1="174" x2="190" y2="192" stroke="#f87171" stroke-width="1" stroke-dasharray="3,2"/>
+            <polygon points="185,190 195,190 190,198" fill="#f87171"/>
+            <text x="200" y="186" fill="#f87171" font-size="8" font-family="monospace">[Fail]</text>
+            <!-- Local AI box -->
+            <rect x="142" y="198" width="96" height="28" rx="5" fill="rgba(255,255,255,0.04)" stroke="#888" stroke-width="1"/>
+            <text x="190" y="217" text-anchor="middle" fill="#aaa" font-size="9" font-family="monospace">Local (TinyLlama)</text>
+            <!-- Arrow from Local AI down to System Actions right -->
+            <line x1="190" y1="226" x2="190" y2="270" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="190" y1="270" x2="152" y2="270" stroke="#888" stroke-width="1"/>
+            <!-- System Actions box -->
+            <rect x="88" y="256" width="64" height="28" rx="6" fill="rgba(194,168,120,0.12)" stroke="#c2a878" stroke-width="1.2"/>
+            <text x="120" y="275" text-anchor="middle" fill="#c2a878" font-size="9" font-family="monospace">System Actions</text>
           </svg>
         </div>
       </div>
